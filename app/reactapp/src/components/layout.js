@@ -1,11 +1,28 @@
 import { Layout, Menu, Breadcrumb } from 'antd';
 import { UserOutlined, LaptopOutlined } from '@ant-design/icons';
 import MyStats from './MyStats'
+import { useState, useEffect } from 'react';
 
 const { SubMenu } = Menu;
 const { Header, Content, Sider } = Layout;
 
 function MyLayout(){
+
+    const [users,setUsers] = useState(null);
+
+    useEffect(() => {
+        fetch("http://127.0.0.1:8000/webapp/userregister/",{
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': 'Token c819b74eecd7115b00003389408f38a04fcf7ff9'
+        }
+        })
+        .then( resp => resp.json())
+        .then( resp => setUsers(resp))
+        .catch( error => console.log(error))
+    },[])
+
     return (
         <div>
             <Layout>
@@ -47,7 +64,7 @@ function MyLayout(){
                         minHeight: 280,
                     }}
                     >
-                        <MyStats/>
+                    <MyStats users={users}/>                    
                     </Content>
                 </Layout>
                 </Layout>

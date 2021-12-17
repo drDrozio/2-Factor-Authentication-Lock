@@ -16,7 +16,7 @@ import json
 
 cascade = 'face_triplet/haarcascade_frontalface_alt.xml'
 
-def build_data():
+def build_data(name,category):
 	# load OpenCV's Haar cascade for face detection from disk
 	# detector = cv2.CascadeClassifier(args["cascade"])
 	detector = cv2.CascadeClassifier(cascade)
@@ -29,8 +29,9 @@ def build_data():
 	time.sleep(2.0)
 	total = 0
 	# Logic to register new users
-	name = input("Enter name : ")
-	category = input("Enter category : ")
+	######### GUI CHANGES #######
+	# name = input("Enter name : ")
+	# category = input("Enter category : ")
 	# Parent Directory path
 	parent_dir = "face_triplet/dataset/"
 	# Path

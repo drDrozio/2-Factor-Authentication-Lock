@@ -2,10 +2,10 @@ from face_triplet.build_dataset import *
 from face_triplet.extract_embeddings import *
 from face_triplet.train_model import *
 
-def add_user():
+def add_user(name,category):
     print(len(next(os.walk('face_triplet/dataset/'))[1]))
     # Build Data, Take Input
-    build_data()
+    build_data(name,category)
 
     # Extract Embeddings
     extract_embeddings()
@@ -17,4 +17,4 @@ def add_user():
         retrain_model()
 
 
-add_user()
+# add_user()

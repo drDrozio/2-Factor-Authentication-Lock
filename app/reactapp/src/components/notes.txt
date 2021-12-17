@@ -1,0 +1,10 @@
+{props.users && (
+                    <div>
+                        {/* loop over the books */}
+                        {props.users.map((user, index) => (
+                        <div key={index}>
+                            <p>{user.name}</p>
+                        </div>
+                        ))}
+                    </div>
+                    )}
